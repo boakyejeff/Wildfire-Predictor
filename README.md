@@ -1,100 +1,45 @@
-# 🔥 Prairie Burn Detection – Baseline Machine Learning
+# Wildfire Predictor (Konza Prairie Burn Detection)
 
-This repository contains baseline ML model evaluations for prairie burn detection using stacked multitemporal Landsat TM data.
+Wildfire detection and prevention are critical for environmental sustainability and community safety. This project leverages advanced Machine Learning techniques with stacked multitemporal Landsat TM data to predict and analyze prairie burn events.
 
-## 📁 Repository Structure
+## Features
+- **Data Preprocessing Pipelines:** Converts raw flat files into structured geographic fields (`Step1`) and builds normalized baseline data arrays (`Step6`).
+- **Geospatial Visualizations:** Employs geographic visualization scripts to map stacked remote sensing datasets onto actual prairie topologies (`Step3` & `Step4`).
+- **Baseline Machine Learning:** Tests multiple scikit-learn algorithms (e.g., K-Nearest Neighbors, Support Vector Classifiers, Logistic Regression, Decision Trees) to establish a baseline efficacy for burn predictions on raw and normalized data (`Step5` & `Step6`).
+- **Production Scripts:** Previously scattered Jupyter Notebooks have been extracted into automated, PEP8-formatted Python scripts to allow for programmatic execution.
 
-```
-I am still building this structure This is a school project 
-Prairie-Burn-Detection/
-│
-├── README.md
-├── requirements.txt
-├── .gitignore
-│
-├── data/
-│   └── FullStacked_data.csv
-│
-├── notebooks/
-│   └── Step5_Stacked_BaseLine_ML.ipynb
-│
-├── results/
-│   └── summary_baseline_results.md
-│
-└── src/
-    └── baseline_models.py
-``` 
+## Setup & Installation
 
-## ⚙️ Requirements
+It is recommended to run this repository in an isolated virtual environment.
 
-Install dependencies using:
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/boakyejeff/Wildfire-Predictor.git
+   cd Wildfire-Predictor
+   ```
+2. **Create and activate a virtual environment:**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows, use: venv\Scripts\activate
+   ```
+3. **Install the required dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. **Execute Pipeline Scripts (Examples):**
+   ```bash
+   python Step5_Stacked_BaseLine_ML.py
+   python Step6_NormalizedData_BaseLine_ML.py
+   ```
 
-```bash
-pip install -r requirements.txt
-```
+## Dependencies Highlights
+Core analytical and geospatial libraries include:
+- `pandas`
+- `numpy`
+- `geopandas`
+- `scikit-learn`
+- `matplotlib`
+- `seaborn`
 
-## 🚀 How to Run
-
-1. **Clone the repository**
-
-    ```bash
-    git clone https://github.com/yourusername/prairie-burn-detection.git
-    cd prairie-burn-detection
-    ```
-
-2. **Place the dataset** in the `/data` folder:
-
-    - Ensure `FullStacked_data.csv` is inside `data/`
-
-3. **Open the Jupyter Notebook**:
-
-    ```bash
-    jupyter notebook notebooks/Step5_Stacked_BaseLine_ML.ipynb
-    ```
-
-4. **Run all cells** to execute the baseline models.
-
-
-## 📊 Model Performance Summary
-
-| Model              | Resub Accuracy | CV Avg Accuracy |
-|---------------------|----------------|-----------------|
-| Logistic Regression | 0.886          | 88.64%          |
-| KNN                | 0.933          | 90.79%          |
-| Decision Tree      | 0.999          | 87.79%          |
-| Linear SVC         | 0.818          | 72.86%          |
-
-📌 **Best Model:** KNN — stable and accurate  
-⚠️ **Decision Tree** overfits; **Linear SVC** is inconsistent
-
-
-## 📝 Notes
-
-- The dataset is randomly shuffled at each run, so results may slightly vary.
-- Decision Tree shows signs of overfitting.
-- KNN is the best-performing model in terms of stability and accuracy.
-
-
-## 📌 Future Improvements
-
-- Hyperparameter tuning for KNN and Decision Tree.
-- Implementation of **Random Forests** and **Gradient Boosting**.
-- Integration with real-time satellite data streams.
-
-
-## 🙌 Contributing
-
-Feel free to fork this repository, submit issues, and make pull requests. All contributions are welcome!
-
-
-## 📫 Contact
-
-- **Author:** Jeffrey Appiagyei
-- **Email:** [boakyejeff@gmail.com](mailto:boakyejeff@gmail.com)
-- - **Email:** [boakyejeff@gmail.com](mailto:boakyejeff@gmail.com)
-
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
+## License
+MIT License.
